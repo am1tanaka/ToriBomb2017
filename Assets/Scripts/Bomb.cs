@@ -4,6 +4,8 @@ using System.Collections;
 public class Bomb : MonoBehaviour {
 	/** 爆弾の数*/
 	private static int iCount = 0;
+	/** 誘爆カウンタ*/
+	private int iYubaku = 1;
 
 	/** 現在の爆弾の数を孵す*/
 	public static int getCount() {
@@ -28,6 +30,7 @@ public class Bomb : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		iCount++;
+		iYubaku = 1;
 	}
 
 	/** ゲーム時の挙動を停止する*/
@@ -46,6 +49,13 @@ public class Bomb : MonoBehaviour {
 		// 相手が爆発
 		if (col.CompareTag("Exp")) {
 			GetComponent<Animator>().SetTime(89f/60f);
+			// カウンタを増やす
+			iYubaku = col.GetComponent<Bomb>().getYubaku()+1;
 		}
+	}
+
+	/** 誘爆数を増やす*/
+	public int getYubaku() {
+		return iYubaku;
 	}
 }
