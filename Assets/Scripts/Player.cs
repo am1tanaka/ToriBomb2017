@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (GameController.me.nowScene != GameController.SCENES.SC_GAME) {
+		if (!GameController.isGame()) {
 			return ;
 		}
 		// クリックを判定
