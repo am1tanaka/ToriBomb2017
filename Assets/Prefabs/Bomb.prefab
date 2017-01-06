@@ -12,6 +12,7 @@ GameObject:
   - 95: {fileID: 9559640}
   - 58: {fileID: 5880082}
   - 114: {fileID: 11466574}
+  - 50: {fileID: 5078214}
   m_Layer: 9
   m_Name: Bomb
   m_TagString: Bomb
@@ -31,6 +32,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5078214
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113046}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!58 &5880082
 CircleCollider2D:
   m_ObjectHideFlags: 1

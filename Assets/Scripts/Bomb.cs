@@ -45,8 +45,7 @@ public class Bomb : MonoBehaviour {
 
 		// 相手が爆発
 		if (col.CompareTag("Exp")) {
-			// 自分を爆発にする
-			GetComponent<Animator>().SetTrigger("Yubaku");
+			GetComponent<Animator>().SetTime(89f/60f);
 		}
 	}
 }
