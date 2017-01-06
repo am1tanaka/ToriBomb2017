@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11472630}
   m_Layer: 0
   m_Name: Hiyoko
-  m_TagString: Untagged
+  m_TagString: Hiyoko
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd7f7fbb44d9d7418d2057a9087f0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boundVelocity: {x: 2, y: 3, z: 0}
 --- !u!212 &21255252
 SpriteRenderer:
   m_ObjectHideFlags: 1

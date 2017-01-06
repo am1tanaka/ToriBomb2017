@@ -151,7 +151,7 @@ public class GameController : MonoBehaviour {
 
 	/** 全てのゲームオブジェクトを削除*/
 	void removeAllGameObjects() {
-		string [] tags = {"Egg", "Bomb", "Exp"};
+		string [] tags = {"Egg", "Bomb", "Exp", "Hiyoko"};
 		foreach (string tag in tags) {
 			GameObject [] objects = GameObject.FindGameObjectsWithTag(tag);
 			foreach(GameObject obj in objects) {
