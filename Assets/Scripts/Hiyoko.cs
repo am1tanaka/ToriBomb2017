@@ -13,6 +13,7 @@ public class Hiyoko : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator>();
 		rig = GetComponent<Rigidbody2D>();
+		transform.parent = GameController.me.sceneObjects[(int)GameController.SCENES.SC_GAME].transform;
 
 		// 左半分の時、フリップ
 		if (transform.position.x < 0f) {
@@ -26,7 +27,7 @@ public class Hiyoko : MonoBehaviour {
 		AnimatorStateInfo animInfo = anim.GetCurrentAnimatorStateInfo(0);
 
 		// 着地していたら、歩き続ける
-		if (animInfo.IsName("Walk")) {
+		if (animInfo.IsName("Walk") && GameController.isGame()) {
 			rig.velocity = boundVelocity;
 		}
 	}
@@ -49,5 +50,21 @@ public class Hiyoko : MonoBehaviour {
 			// アニメ設定
 			anim.SetTrigger("grounded");
 		}
+	}
+
+	/** カメラから消えることを判定*/
+	void OnBecameInvisible() {
+		Destroy(gameObject);
+	}
+
+	/** ゲームオーバーで停止*/
+	void StopGame() {
+		// 物理挙動を停止
+		rig.isKinematic = true;
+		rig.velocity = Vector3.zero;
+		// アニメ停止
+		anim.enabled = false;
+		// 判定停止
+		GetComponent<BoxCollider2D>().enabled = false;
 	}
 }

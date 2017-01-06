@@ -196,4 +196,9 @@ public class GameController : MonoBehaviour {
 	public static void gameOver() {
 		me.nextScene = SCENES.SC_GAMEOVER;
 	}
+
+	/** ゲーム中か*/
+	public static bool isGame() {
+		return me.nowScene == SCENES.SC_GAME;
+	}
 }
