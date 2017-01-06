@@ -58,4 +58,9 @@ public class Bomb : MonoBehaviour {
 	public int getYubaku() {
 		return iYubaku;
 	}
+
+	/** 誘爆数を増やす*/
+	public void addYubaku() {
+		iYubaku++;
+	}
 }

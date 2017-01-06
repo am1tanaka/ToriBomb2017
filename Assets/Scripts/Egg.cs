@@ -7,16 +7,19 @@ public class Egg : MonoBehaviour {
 	/** ひよこプレハブ*/
 	public GameObject prefHiyoko;
 	/** 点数*/
-	public int POINT = 100;
+	public int POINT = 10;
+	/** リジッドボディ*/
+	private Rigidbody2D rig;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
+		rig = GetComponent<Rigidbody2D>();
 	}
 
 	// ゲームを停止する
 	void StopGame() {
-		GetComponent<Rigidbody2D>().isKinematic = true;
+		rig.isKinematic = true;
 		GetComponent<CircleCollider2D>().enabled = false;
 	}
 
@@ -32,7 +35,11 @@ public class Egg : MonoBehaviour {
 			// ひよこを孵す
 			Instantiate(prefHiyoko, transform.position, Quaternion.identity);
 			// スコア
-			GameController.addScore(POINT);
+			int basepoint = (int)(POINT*(1f-rig.velocity.y));
+			int yubaku = col.GetComponent<Bomb>().getYubaku();
+			int point = basepoint*yubaku;
+			GameController.addScore(point);
+			col.gameObject.SendMessage("addYubaku");
 			// 卵を消す
 			Destroy(gameObject);
 		}
