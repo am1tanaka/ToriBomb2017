@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Floor
   - Egg
+  - Bomb
+  - Exp
   layers:
   - Default
   - TransparentFX
@@ -46,6 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: CHRS
+  - name: Explosion
+    uniqueID: 3027497229
+    locked: 0
+  - name: Label
     uniqueID: 1948981113
     locked: 0
