@@ -89,6 +89,8 @@ public class GameController : MonoBehaviour {
 				textScene.text = "TITLE";
 				sceneObjects[(int)SCENES.SC_TITLE].SetActive(true);
 				sceneObjects[(int)SCENES.SC_GAMEOVER].SetActive(false);
+				// ゲームオブジェクトを全て削除
+				removeAllGameObjects();
 				break;
 			case SCENES.SC_GAME:
 				textScene.text = "GAME";
@@ -100,6 +102,11 @@ public class GameController : MonoBehaviour {
 			case SCENES.SC_GAMEOVER:
 				textScene.text = "GAMEOVER";
 				sceneObjects[(int)SCENES.SC_GAMEOVER].SetActive(true);
+				// 卵の物理挙動を切る
+				GameObject [] eggs = GameObject.FindGameObjectsWithTag("Egg");
+				foreach (GameObject egg in eggs) {
+					egg.SendMessage("stopRigidbody");
+				}
 				break;
 			}
 		}
@@ -143,6 +150,17 @@ public class GameController : MonoBehaviour {
 		spawnEgg();
 	}
 
+	/** 全てのゲームオブジェクトを削除*/
+	void removeAllGameObjects() {
+		string [] tags = {"Egg", "Bomb", "Exp"};
+		foreach (string tag in tags) {
+			GameObject [] objects = GameObject.FindGameObjectsWithTag(tag);
+			foreach(GameObject obj in objects) {
+				Destroy(obj);
+			}
+		}
+	}
+
 	/** 卵を出現させる*/
 	void spawnEgg() {
 		// 出現率の向上
@@ -160,7 +178,8 @@ public class GameController : MonoBehaviour {
 		// 上記が1以下の時、卵を出現
 		if (rand <= 1f) {
 			Vector3 pos = new Vector3(Random.Range(-eggRange.x, eggRange.x), eggRange.y, 0f);
-			Instantiate(prefEgg, pos, Quaternion.identity);
+			GameObject egg = Instantiate(prefEgg, pos, Quaternion.identity) as GameObject;
+			egg.transform.parent = sceneObjects[(int)SCENES.SC_GAME].transform;
 		}
 	}
 
@@ -172,6 +191,10 @@ public class GameController : MonoBehaviour {
 			new Vector3(-eggRange.x, eggRange.y, eggRange.z),
 			new Vector3(eggRange.x, eggRange.y, eggRange.z)
 		);
+	}
 
+	/** ゲームオーバーへ移行*/
+	public static void gameOver() {
+		me.nextScene = SCENES.SC_GAMEOVER;
 	}
 }

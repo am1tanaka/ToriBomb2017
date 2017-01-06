@@ -11,9 +11,11 @@ GameObject:
   - 212: {fileID: 21257764}
   - 95: {fileID: 9537710}
   - 50: {fileID: 5048860}
+  - 58: {fileID: 5842854}
+  - 114: {fileID: 11498398}
   m_Layer: 0
   m_Name: egg
-  m_TagString: Untagged
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +49,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &5842854
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195256}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.85
 --- !u!95 &9537710
 Animator:
   serializedVersion: 3
@@ -64,6 +80,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11498398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ba0d3d8ad17594fa9a50b90a3af292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21257764
 SpriteRenderer:
   m_ObjectHideFlags: 1
