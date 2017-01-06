@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
+	/** シングルトン*/
+	public static GameController me;
+
 	/** デバッグ*/
 	public bool isDebug = true;
 
@@ -11,6 +14,11 @@ public class GameController : MonoBehaviour {
 
 	/** シーンテキスト*/
 	public Text textScene;
+	/** スコアテキスト*/
+	public Text textScore;
+
+	/** スコアの上限*/
+	private const int SCORE_MAX = 9999999;
 
 	/** シーン定義*/
 	public enum SCENES {
@@ -24,11 +32,16 @@ public class GameController : MonoBehaviour {
 	/** 次のシーン*/
 	public SCENES nextScene = SCENES.SC_TITLE;
 
+	/** スコア*/
+	private int iScore;
+
 	// Use this for initialization
 	void Start () {
+		me = this;
 		textScene.enabled = isDebug;
 		nowScene = SCENES.SC_NONE;
 		nextScene = SCENES.SC_TITLE;
+		iScore = 0;
 	}
 	
 	// Update is called once per frame
@@ -38,6 +51,14 @@ public class GameController : MonoBehaviour {
 
 		/** 処理*/
 		updateScene();
+	}
+
+	/** スコアの加算*/
+	public static void addScore(int add) {
+		me.iScore += add;
+		if (me.iScore > SCORE_MAX) {
+			me.iScore = SCORE_MAX;
+		}
 	}
 
 	/** シーンの切り替え処理*/
@@ -55,6 +76,7 @@ public class GameController : MonoBehaviour {
 			case SCENES.SC_GAME:
 				textScene.text = "GAME";
 				sceneObjects[(int)SCENES.SC_TITLE].SetActive(false);
+				iScore = 0;
 				break;
 			case SCENES.SC_GAMEOVER:
 				textScene.text = "GAMEOVER";
@@ -66,6 +88,10 @@ public class GameController : MonoBehaviour {
 
 	/** 更新処理*/
 	void updateScene() {
+		/** スコア表示*/
+		string sc = "00000"+iScore;
+		textScore.text = "Score:"+sc.Substring(sc.Length-6,6);
+
 		/** 切り替えチェック*/
 		if (isDebug) {
 			switch (nowScene) {
