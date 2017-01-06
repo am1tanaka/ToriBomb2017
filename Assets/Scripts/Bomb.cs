@@ -12,7 +12,8 @@ public class Bomb : MonoBehaviour {
 
 	/** タグを変更する*/
 	void changeExplosionTag() {
-		tag = "Exp";
+		gameObject.tag = "Exp";
+		gameObject.layer = LayerMask.NameToLayer("Exp");
 	}
 
 	/** 自分を消す*/

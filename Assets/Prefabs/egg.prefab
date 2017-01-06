@@ -13,7 +13,7 @@ GameObject:
   - 50: {fileID: 5048860}
   - 58: {fileID: 5842854}
   - 114: {fileID: 11498398}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: egg
   m_TagString: Egg
   m_Icon: {fileID: 0}
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ba0d3d8ad17594fa9a50b90a3af292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefHiyoko: {fileID: 155716, guid: b35834c5b3302f648a1324ceff0235e1, type: 2}
 --- !u!212 &21257764
 SpriteRenderer:
   m_ObjectHideFlags: 1
