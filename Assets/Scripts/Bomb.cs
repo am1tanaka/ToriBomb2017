@@ -35,4 +35,18 @@ public class Bomb : MonoBehaviour {
 		GetComponent<CircleCollider2D>().enabled = false;
 		GetComponent<Animator>().enabled = false;
 	}
+
+	/** 誘爆判定*/
+	void OnTriggerEnter2D(Collider2D col) {
+		// 自分が爆弾の時のみ
+		if (!CompareTag("Bomb")) {
+			return ;
+		}
+
+		// 相手が爆発
+		if (col.CompareTag("Exp")) {
+			// 自分を爆発にする
+			GetComponent<Animator>().SetTrigger("Yubaku");
+		}
+	}
 }
