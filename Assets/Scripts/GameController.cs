@@ -102,11 +102,10 @@ public class GameController : MonoBehaviour {
 			case SCENES.SC_GAMEOVER:
 				textScene.text = "GAMEOVER";
 				sceneObjects[(int)SCENES.SC_GAMEOVER].SetActive(true);
-				// 卵の物理挙動を切る
-				GameObject [] eggs = GameObject.FindGameObjectsWithTag("Egg");
-				foreach (GameObject egg in eggs) {
-					egg.SendMessage("stopRigidbody");
-				}
+
+				// ゲームの挙動を停止
+				sceneObjects[(int)SCENES.SC_GAME].BroadcastMessage("StopGame");
+
 				break;
 			}
 		}

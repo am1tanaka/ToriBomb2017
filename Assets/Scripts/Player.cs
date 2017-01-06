@@ -20,7 +20,8 @@ public class Player : MonoBehaviour {
 			Vector3 pos = Camera.main.ScreenToWorldPoint(mspos);
 
 			// 爆弾を出現
-			Instantiate(prefBomb, pos, Quaternion.identity);
+			GameObject go = Instantiate(prefBomb, pos, Quaternion.identity) as GameObject;
+			go.transform.parent = GameController.me.sceneObjects[(int)GameController.SCENES.SC_GAME].transform;
 		}
 	}
 }

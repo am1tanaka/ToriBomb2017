@@ -10,8 +10,8 @@ public class Egg : MonoBehaviour {
 		anim = GetComponent<Animator>();
 	}
 
-	// リジッドボディを停止する
-	void stopRigidbody() {
+	// ゲームを停止する
+	void StopGame() {
 		GetComponent<Rigidbody2D>().isKinematic = true;
 		GetComponent<CircleCollider2D>().enabled = false;
 	}

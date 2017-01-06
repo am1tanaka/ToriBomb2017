@@ -28,4 +28,10 @@ public class Bomb : MonoBehaviour {
 	void Start () {
 		iCount++;
 	}
+
+	/** ゲーム時の挙動を停止する*/
+	void StopGame() {
+		GetComponent<CircleCollider2D>().enabled = false;
+		GetComponent<Animator>().enabled = false;
+	}
 }
