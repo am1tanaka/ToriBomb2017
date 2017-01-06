@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
 	public static GameController me;
 
 	/** デバッグ*/
-	public bool isDebug = true;
+	public bool isDebug = false;
 
 	/** 卵の出現範囲。xは幅。yは高さ*/
 	public Vector3 eggRange = new Vector3(5,11,0);
