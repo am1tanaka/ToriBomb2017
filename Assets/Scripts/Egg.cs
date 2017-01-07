@@ -8,6 +8,8 @@ public class Egg : MonoBehaviour {
 	public GameObject prefHiyoko;
 	/** 点数*/
 	public int POINT = 10;
+	/** 得点プレハブ*/
+	public GameObject prefPoint;
 	/** リジッドボディ*/
 	private Rigidbody2D rig;
 
@@ -40,6 +42,9 @@ public class Egg : MonoBehaviour {
 			int point = basepoint*yubaku;
 			GameController.addScore(point);
 			col.gameObject.SendMessage("addYubaku");
+			// スコア表示
+			GameObject go = Instantiate(prefPoint, transform.position, Quaternion.identity) as GameObject;
+			go.GetComponent<Point>().setPoint(basepoint, yubaku);
 			// 卵を消す
 			Destroy(gameObject);
 		}

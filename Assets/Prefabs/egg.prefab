@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefHiyoko: {fileID: 155716, guid: b35834c5b3302f648a1324ceff0235e1, type: 2}
   POINT: 10
+  prefPoint: {fileID: 103090, guid: 511e79403553b0149b94597d717b3ca8, type: 2}
 --- !u!212 &21257764
 SpriteRenderer:
   m_ObjectHideFlags: 1

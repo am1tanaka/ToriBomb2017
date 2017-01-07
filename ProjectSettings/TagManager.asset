@@ -9,6 +9,7 @@ TagManager:
   - Bomb
   - Exp
   - Hiyoko
+  - Point
   layers:
   - Default
   - TransparentFX
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: Explosion
     uniqueID: 3027497229
+    locked: 0
+  - name: Point
+    uniqueID: 1265933423
     locked: 0
   - name: Label
     uniqueID: 1948981113
