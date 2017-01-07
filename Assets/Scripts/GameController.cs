@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour {
 	public Text textScene;
 	/** スコアテキスト*/
 	public Text textScore;
+	/** ハイスコアテキスト*/
+	public Text textHighScore;
 
 	/** 卵プレハブ*/
 	public GameObject prefEgg;
@@ -51,6 +53,8 @@ public class GameController : MonoBehaviour {
 
 	/** スコア*/
 	private int iScore;
+	/** ハイスコア*/
+	private int iHighScore = 1000;
 
 	// Use this for initialization
 	void Start () {
@@ -89,6 +93,7 @@ public class GameController : MonoBehaviour {
 				textScene.text = "TITLE";
 				sceneObjects[(int)SCENES.SC_TITLE].SetActive(true);
 				sceneObjects[(int)SCENES.SC_GAMEOVER].SetActive(false);
+				textHighScore.enabled = true;
 				// ゲームオブジェクトを全て削除
 				removeAllGameObjects();
 				break;
@@ -98,16 +103,27 @@ public class GameController : MonoBehaviour {
 				// ゲームパラメーターを初期化
 				iScore = 0;
 				gameTime = 0f;
+				textHighScore.enabled = false;
 				break;
 			case SCENES.SC_GAMEOVER:
 				textScene.text = "GAMEOVER";
 				sceneObjects[(int)SCENES.SC_GAMEOVER].SetActive(true);
+				textHighScore.enabled = true;
 
 				// ゲームの挙動を停止
 				sceneObjects[(int)SCENES.SC_GAME].BroadcastMessage("StopGame");
 
+				// ハイスコアの更新
+				if (iScore > iHighScore) {
+					iHighScore = iScore;
+				}
+
 				break;
 			}
+
+			// ハイスコアの代入
+			string sc = "00000"+iHighScore;
+			textHighScore.text = "HighScore:"+sc.Substring(sc.Length-6,6);
 		}
 	}
 

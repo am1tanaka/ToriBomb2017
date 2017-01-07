@@ -125,6 +125,7 @@ MonoBehaviour:
   - {fileID: 1481986942}
   textScene: {fileID: 289123143}
   textScore: {fileID: 819600677}
+  textHighScore: {fileID: 212751161}
   prefEgg: {fileID: 195256, guid: db650bc630e485a4fb38f2b89f65a818, type: 2}
   nowScene: 0
   nextScene: 1
