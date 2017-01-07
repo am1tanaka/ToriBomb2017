@@ -63,6 +63,10 @@ public class GameController : MonoBehaviour {
 		nowScene = SCENES.SC_NONE;
 		nextScene = SCENES.SC_TITLE;
 		iScore = 0;
+		// ハイスコアを読み込む
+		if (PlayerPrefs.HasKey("HighScore")) {
+			iHighScore = PlayerPrefs.GetInt("HighScore");
+		}
 	}
 	
 	// Update is called once per frame
@@ -116,6 +120,8 @@ public class GameController : MonoBehaviour {
 				// ハイスコアの更新
 				if (iScore > iHighScore) {
 					iHighScore = iScore;
+					// ハイスコアを書き込む
+					PlayerPrefs.SetInt("HighScore", iHighScore);
 				}
 
 				break;
