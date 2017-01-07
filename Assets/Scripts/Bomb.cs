@@ -4,6 +4,8 @@ using System.Collections;
 public class Bomb : MonoBehaviour {
 	/** 爆弾の数*/
 	private static int iCount = 0;
+	/** Order in Layerの調整値*/
+	private static int iSortingLayerCount = 0;
 	/** 誘爆カウンタ*/
 	private int iYubaku = 1;
 
@@ -31,6 +33,8 @@ public class Bomb : MonoBehaviour {
 	void Start () {
 		iCount++;
 		iYubaku = 1;
+		GetComponent<SpriteRenderer>().sortingOrder = iSortingLayerCount;
+		iSortingLayerCount = (int)Mathf.Repeat(iSortingLayerCount+1, 32767);
 	}
 
 	/** ゲーム時の挙動を停止する*/
