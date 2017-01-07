@@ -19,7 +19,7 @@ public class Point : MonoBehaviour {
 	/** 倍率スプライトレンダラ―*/
 	private SpriteRenderer rendererBairitsu;
 	/** 点数テキスト*/
-	private TextMesh textPoint;
+	private Text textPoint;
 
 	/** 得点と倍率を設定*/
 	public void setPoint(int pnt, int ritsu) {
@@ -30,7 +30,7 @@ public class Point : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rendererBairitsu = GetComponentInChildren<SpriteRenderer>();
-		textPoint = GetComponentInChildren<TextMesh>();
+		textPoint = GetComponentInChildren<Text>();
 		Invoke("destroyMe", lifeTime);
 	}
 
