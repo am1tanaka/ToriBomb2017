@@ -11,7 +11,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: AmuseOne
   productName: ToriBomb2017
-  defaultCursor: {fileID: 2800000, guid: c637f021ff2610347bec1a404f145ea5, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
   m_VirtualRealitySplashScreen: {fileID: 0}

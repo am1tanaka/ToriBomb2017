@@ -21,8 +21,10 @@ public class Egg : MonoBehaviour {
 
 	// ゲームを停止する
 	void StopGame() {
-		rig.isKinematic = true;
 		GetComponent<CircleCollider2D>().enabled = false;
+		rig.constraints = RigidbodyConstraints2D.FreezeAll;
+		rig.velocity = Vector3.zero;
+		rig.rotation = 0f;
 	}
 
 	/** 接触チェック*/

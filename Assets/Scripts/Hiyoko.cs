@@ -60,8 +60,10 @@ public class Hiyoko : MonoBehaviour {
 	/** ゲームオーバーで停止*/
 	void StopGame() {
 		// 物理挙動を停止
-		rig.isKinematic = true;
+		rig.constraints = RigidbodyConstraints2D.FreezeAll;
 		rig.velocity = Vector3.zero;
+		rig.rotation = 0f;
+
 		// アニメ停止
 		anim.enabled = false;
 		// 判定停止
