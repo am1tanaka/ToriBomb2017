@@ -1,7 +1,7 @@
 # 正月休み課題「鶏Bomb2017」
 ver 170108
 <p>
-<a href="webgl/index.html">
+<a href="webgl/index.html" target="_blank">
 <img src="images/img0.png" height="240px" alt="タイトル画面">
 <img src="images/img1.png" height="240px" alt="ゲーム画面">
 <p>ゲームで遊ぶ</p>
@@ -30,7 +30,7 @@ ver 170108
 バグの確認や報告は[こちら](https://github.com/tanakaedu/ToriBomb2017/issues)へどうぞ。
 
 # リソースリスト
-本作品で使われている[リソースリスト](リソースリスト.xlsx)です。
+本作品で使われている<a href="リソースリスト.xlsx" target="_blank">リソースリスト</a>です。
 
 全て自作のリソースで作成しています。
 
