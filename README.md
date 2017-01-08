@@ -29,5 +29,10 @@ ver 170108
 
 バグの確認や報告は[こちら](https://github.com/tanakaedu/ToriBomb2017/issues)へどうぞ。
 
+# リソースリスト
+本作品で使われている[リソースリスト](リソースリスト.xlsx)です。
+
+全て自作のリソースで作成しています。
+
 ---
 Copyright(C)2017 YuTanaka
